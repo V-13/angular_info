@@ -51,7 +51,7 @@ app.get('/viewAPI',(req,res)=>{
     });
 });
 
-const APIurl1="http://localhost:3500/viewAPI"
+const APIurl1="https://angular-info.herokuapp.com/viewAPI"
 
 app.get('/viewinfo',(req,res)=>{
     request(APIurl1,(error,response,body)=>{
@@ -81,7 +81,7 @@ app.get('/searchAPI',(req,res)=>{
 });
 
 
-const APIurl2="http://localhost:3500/searchAPI"
+const APIurl2="https://angular-info.herokuapp.com/searchAPI"
 
 
 
