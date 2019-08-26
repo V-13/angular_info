@@ -6,7 +6,8 @@ var bodyParser=require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 var request=require('request')
-Mongoose.connect("mongodb://localhost:27017/infodb");
+Mongoose.connect("mongodb+srv://V-13:vivek@cluster0-bgs7t.mongodb.net/studentdb1?retryWrites=true&w=majority")
+// Mongoose.connect("mongodb://localhost:27017/infodb");
 app.use(Express.static(__dirname+"/public"));
 
 
