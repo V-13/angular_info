@@ -47,10 +47,20 @@ const RegModel=Mongoose.model("regdetails",{
     place:String,
     mobile:String,
     email:String,
-    uname:String,
+    uname:String,                  //registration question cheyyan vendi create cheytha model.
     pass1:String,
     pass2:String
 
+})
+
+
+
+const StudentModel=Mongoose.model("studentidcard",{
+    name:String,
+    roll:String,
+    adm:String,                 //for Angular project student Management System created. 
+    branch:String,
+    email:String
 })
 
 
@@ -77,7 +87,7 @@ app.post('/read1',(req,res)=>{
     var result= reg.save((error,data)=>{
         if(error)
         {
-            throw error;                                    //angular_info yku undakkiya api
+            throw error;                                    //registration  question read  api
             res.send('error')
         }
         else
@@ -87,7 +97,20 @@ app.post('/read1',(req,res)=>{
     })
 })
 
-
+app.post('/read2',(req,res)=>{
+    var Info=StudentModel(req.body);                  //Student management system
+    var result=Info.save((error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send('error')
+        }
+        else
+        {
+            res.send("<script>alert('information about student successfully added'</script><script>window.location.href='/'</script>")
+        }
+    });
+});
 
 
 
@@ -122,7 +145,7 @@ app.get('/viewAPI1',(req,res)=>{
         {
             throw error;
             res.send('error')
-        }                                                 //agular_info API
+        }                                                 //registration view API
         else
         {
             res.send(data);
@@ -131,7 +154,30 @@ app.get('/viewAPI1',(req,res)=>{
 });
 
 
-const APIurl3="https://angular-info.herokuapp.com/viewAPI1"
+const APIurl3="https://angular-info.herokuapp.com/viewAPI1" //registration view API
+
+app.get('/viewAPI2',(req,res)=>{
+    var result=StudentModel.find((error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send('error')
+        }                                                 //student Management system
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+
+
+
+const APIurl4="https://angular-info.herokuapp.com/viewAPI2" //student Management system
+
+
+
+
+
 
 
 app.get('/viewregistration',(req,res)=>{
