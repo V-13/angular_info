@@ -77,7 +77,7 @@ app.post('/read1',(req,res)=>{
     var result= reg.save((error,data)=>{
         if(error)
         {
-            throw error;
+            throw error;                                    //angular_info yku undakkiya api
             res.send('error')
         }
         else
@@ -114,6 +114,37 @@ app.get('/viewinfo',(req,res)=>{
         res.render('viewinfo',{info:data})
     });
 });
+
+
+app.get('/viewAPI1',(req,res)=>{
+    var result=RegModel.find((error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send('error')
+        }                                                 //agular_info API
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+
+
+const APIurl3="https://angular-info.herokuapp.com/viewAPI1"
+
+
+app.get('/viewregistration',(req,res)=>{
+    request(APIurl3,(error,response,body)=>{
+        var data =JSON.parse(body);
+        res.render('viewregistration',{info:data})
+    });
+});
+
+
+
+
+
 
 
 app.get('/searchinfo',(req,res)=>{

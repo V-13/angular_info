@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+                <a class="nav-item  nav-link " href="/">Home</a>
+    
+                    <a class="nav-item nav-link " href="/viewinfo">viewinfo</a>
+                    <a class="nav-item nav-link" href="/searchinfo">search</a> 
+                   
+                    
+              </nav>
+
+
+
+
+
+
+
+
+    <div class="card-columns p-5">       
+        <% for (var i=0;i<info.length;i++){%>
+            
+            
+            
+                 
+            
+            <div class="card text-black bg-white"  style="width: 20rem;">
+                   
+                   
+             <div class="card-body">
+             <h2><%=info[i].name%></h2>
+
+       
+            <h5><%=info[i].address%></h5>
+            <h6><%=info[i].gender%></h6>
+            <h5><%=info[i].district%></h5>
+            
+            <h5><%=info[i].place%></h5>
+            <h6><%=info[i].mobile%></h6>
+            <h5><%=info[i].email%></h5>
+            
+
+            <h5><%=info[i].uname%></h5>
+            <h6><%=info[i].pass1%></h6>
+            <h5><%=info[i].pass2%></h5>
+  <!--              
+                         name:String,
+            address:String,
+            gender:String,
+            district:String,
+            place:String,
+            mobile:String,
+            email:String,
+            uname:String,
+            pass1:String,
+            pass2:String
+         -->
+            
+         
+          
+             </div>       
+ </div>
+            
+<%}%>  </div>
+</body>
+</html>
