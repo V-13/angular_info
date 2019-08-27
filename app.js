@@ -38,6 +38,22 @@ const InfoModel=Mongoose.model("infodetails",{
 
 })
 
+
+const RegModel=Mongoose.model("regdetails",{
+    name:String,
+    address:String,
+    gender:String,
+    district:String,
+    place:String,
+    mobile:String,
+    email:String,
+    uname:String,
+    pass1:String,
+    pass2:String
+
+})
+
+
 app.get('/',(req,res)=>{
     res.render('index')
 })
@@ -55,6 +71,26 @@ app.post('/read',(req,res)=>{
         }
     });
 });
+
+app.post('/read1',(req,res)=>{
+    var reg=RegModel(req.body);
+    var result= reg.save((error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send('error')
+        }
+        else
+        {
+            res.send("<script>alert('registration complete')</script>")
+        }
+    })
+})
+
+
+
+
+
 
 app.get('/viewAPI',(req,res)=>{
     var result=InfoModel.find((error,data)=>{
