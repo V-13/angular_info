@@ -216,6 +216,31 @@ app.get('/searchAPI',(req,res)=>{
 const APIurl2="https://angular-info.herokuapp.com/searchAPI"
 
 
+app.get('/searchAPI1',(req,res)=>{
+    var item=req.query.phone;
+    var result=RegModel.find({data:item},(error,data)=>{
+        if(error)
+        {
+            throw error;                                   // Search Api for registration question  
+            res.send('error')
+        }
+        else
+        {
+            res.send(data)
+        }
+    });
+});
+
+
+const APIurl5="https://angular-info.herokuapp.com/searchAPI1"     //search api for registarion question
+
+
+
+
+
+
+
+
 
 app.post('/viewsingleinfo',(req,res)=>{
     var item=req.body.phone;
