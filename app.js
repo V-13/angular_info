@@ -238,7 +238,7 @@ app.post('/userupdate',(req,res)=>{
     const Message=req.body.message;
     const Phone =req.body.phone;
     console.log(x);
-    var result = DataModel.update({_id:x},{$set:{name:Name,email:Email,message:Message,phone:Phone}},(error,data)=>{
+    var result = Infomodel.update({_id:x},{$set:{name:Name,email:Email,message:Message,phone:Phone}},(error,data)=>{
         if(error){
             throw error;
             res.send(error);
