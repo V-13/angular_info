@@ -256,6 +256,38 @@ app.post('/deleteAPI',(req,res)=>{
 });
 
 
+const APIurl6="https://angular-info.herokuapp.com/deleteAPI"
+
+
+
+app.post('/studentdeleteAPI',(req,res)=>{
+    var item=req.body._id;
+    var result=StudentModel.deleteOne({_id:item},(error,data)=>{
+        if(error)                                                 //Student management system
+        {
+            throw error;
+            res.send(error)
+        }
+        else
+        {
+            res.send(data)
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post('/userupdate',(req,res)=>{
     const x =req.body._id;
     const Name=req.body.name;                                      //contact us nte update api
@@ -280,7 +312,7 @@ app.post('/userupdate',(req,res)=>{
 
 
 
-const APIurl6="https://angular-info.herokuapp.com/deleteAPI"
+
 
 
 
