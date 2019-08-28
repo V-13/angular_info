@@ -203,7 +203,7 @@ app.post('/searchAPI',(req,res)=>{
         if(error)                                                 //contact us nte search api
         {
             throw error;
-            res.send('error')
+            res.send(error)
         }
         else
         {
@@ -214,6 +214,38 @@ app.post('/searchAPI',(req,res)=>{
 
 
 const APIurl2="https://angular-info.herokuapp.com/searchAPI"
+
+app.post('/deleteAPI',(req,res)=>{
+    var item=req.body._id;
+    var result=InfoModel.deleteOne({_id:item},(error,data)=>{
+        if(error)                                                 //contact us nte delete api
+        {
+            throw error;
+            res.send(error)
+        }
+        else
+        {
+            res.send(data)
+        }
+    });
+});
+
+
+const APIurl6="https://angular-info.herokuapp.com/deleteAPI"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // app.get('/searchAPI1',(req,res)=>{
@@ -251,6 +283,13 @@ app.post('/viewsingleinfo',(req,res)=>{
     });
 
 });
+
+
+
+
+
+
+
 app.listen(process.env.PORT||3500,()=>{
     console.log("server running on 3500")
 });
