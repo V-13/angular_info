@@ -197,10 +197,10 @@ app.get('/searchinfo',(req,res)=>{
     res.render('searchinfo');
 });
 
-app.get('/searchAPI',(req,res)=>{
-    var item=req.query.phone;
+app.post('/searchAPI',(req,res)=>{
+    var item=req.body.phone;
     var result=InfoModel.find({phone:item},(error,data)=>{
-        if(error)
+        if(error)                                                 //contact us nte search api
         {
             throw error;
             res.send('error')
@@ -216,23 +216,23 @@ app.get('/searchAPI',(req,res)=>{
 const APIurl2="https://angular-info.herokuapp.com/searchAPI"
 
 
-app.get('/searchAPI1',(req,res)=>{
-    var item=req.query.phone;
-    var result=RegModel.find({data:item},(error,data)=>{
-        if(error)
-        {
-            throw error;                                   // Search Api for registration question  
-            res.send('error')
-        }
-        else
-        {
-            res.send(data)
-        }
-    });
-});
+// app.get('/searchAPI1',(req,res)=>{
+//     var item=req.query.phone;
+//     var result=RegModel.find({data:item},(error,data)=>{
+//         if(error)
+//         {
+//             throw error;                                   // Search Api for registration question  
+//             res.send('error')
+//         }
+//         else
+//         {
+//             res.send(data)
+//         }
+//     });
+// });
 
 
-const APIurl5="https://angular-info.herokuapp.com/searchAPI1"     //search api for registarion question
+// const APIurl5="https://angular-info.herokuapp.com/searchAPI1"     //search api for registarion question
 
 
 
@@ -244,6 +244,7 @@ const APIurl5="https://angular-info.herokuapp.com/searchAPI1"     //search api f
 
 app.post('/viewsingleinfo',(req,res)=>{
     var item=req.body.phone;
+    console.log(x);
     request(APIurl2+"/?phone="+item,(error,response,body)=>{
         var data=JSON.parse(body);
         res.render('viewsingleinfo',{info:data});
