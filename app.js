@@ -231,6 +231,30 @@ app.post('/deleteAPI',(req,res)=>{
 });
 
 
+app.post('/userupdate',(req,res)=>{
+    const x =req.body._id;
+    const Name=req.body.name;
+    const Email =req.body.email;
+    const Message=req.body.message;
+    const Phone =req.body.phone;
+    console.log(x);
+    var result = DataModel.update({_id:x},{$set:{name:Name,email:Email,message:Message,phone:Phone}},(error,data)=>{
+        if(error){
+            throw error;
+            res.send(error);
+        }
+        else{
+            res.send(data);
+        }
+    });
+});
+
+
+
+
+
+
+
 const APIurl6="https://angular-info.herokuapp.com/deleteAPI"
 
 
