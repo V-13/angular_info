@@ -309,6 +309,23 @@ app.post('/userupdate',(req,res)=>{
 
 
 
+app.post('/studentupdate',(req,res)=>{
+    const x =req.body._id;
+    const Name=req.body.name;                                      //student management system
+    const Roll =req.body.roll;
+    const Admission=req.body.adm;
+    const Branch =req.body.branch;
+    console.log(x);
+    var result = StudentModel.update({_id:x},{$set:{name:Name,roll:Roll,adm:Admission,branch:Branch}},(error,data)=>{
+        if(error){
+            throw error;
+            res.send(error);
+        }
+        else{
+            res.send(data);
+        }
+    });
+});
 
 
 
