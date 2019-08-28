@@ -293,7 +293,7 @@ const APIurl6="https://angular-info.herokuapp.com/deleteAPI"
 
 
 
-
+const APIurl7="https://angular-info.herokuapp.com/userupdate"
 
 
 
